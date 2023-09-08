@@ -60,31 +60,31 @@ echo
 echo "⭐ Installing conda and pip dependencies"
 echo
 conda install pip nb_conda_kernels -y
-pip install matplotlib
-pip install plotly==5.9.0
-pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash
-pip install "notebook>=5.3" "ipywidgets>=7.5"
-pip install ipykernel
-pip3 install torch torchvision
-pip install torchmetrics[detection]
+python -m pip install matplotlib
+python -m pip install plotly==5.9.0
+python -m pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash
+python -m pip install "notebook>=5.3" "ipywidgets>=7.5"
+python -m pip install ipykernel
+python -m pip install torch torchvision
+python -m pip install torchmetrics[detection]
 #pip install torch==1.12.0 torchvision
-pip install torch_geometric pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.0+cu118.html
+python -m pip install torch_geometric pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 #pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.12.0+cu102.html
-pip install plyfile
-pip install h5py
-pip install colorhash
-pip install seaborn
-pip3 install numba
-pip install pytorch-lightning
+python -m pip install plyfile
+python -m pip install h5py
+python -m pip install colorhash
+python -m pip install seaborn
+python -m pip install numba
+python -m pip install pytorch-lightning
 #pip install pytorch-lightning==1.8
-pip install pyrootutils
-pip install hydra-core --upgrade
-pip install hydra-colorlog
-pip install hydra-submitit-launcher
-pip install rich
-pip install torch_tb_profiler
-pip install wandb
-pip install gdown
+python -m pip install pyrootutils
+python -m pip install hydra-core --upgrade
+python -m pip install hydra-colorlog
+python -m pip install hydra-submitit-launcher
+python -m pip install rich
+python -m pip install torch_tb_profiler
+python -m pip install wandb
+python -m pip install gdown
 
 #*********************************
 
@@ -107,11 +107,10 @@ echo
 echo
 echo "⭐ Installing Point Geometric Features"
 echo
-git clone https://github.com/drprojects/point_geometric_features.git src/dependencies/point_geometric_features
-cd src/dependencies/point_geometric_features
 conda install -c omnia eigen3 -y
-python python/setup.py build_ext --include-dirs=$CONDA_PREFIX/include
-cd ../../..
+export EIGEN_LIB_PATH="$CONDA_PREFIX/include" 
+python -m pip install git+https://github.com/rjanvier/point_geometric_features@setuptools
+
 
 echo
 echo
