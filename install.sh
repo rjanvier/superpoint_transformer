@@ -111,7 +111,6 @@ conda install -c omnia eigen3 -y
 export EIGEN_LIB_PATH="$CONDA_PREFIX/include" 
 python -m pip install git+https://github.com/rjanvier/point_geometric_features@setuptools
 
-
 echo
 echo
 echo "⭐ Installing Parallel Cut-Pursuit"
